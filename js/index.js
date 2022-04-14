@@ -4,9 +4,20 @@ pragContext = contexts[Math.floor(Math.random() * contexts.length)];
 
 var query = window.location.search.substring(1);
 
-console.log(query);
+var rotation = function() {
+  rotationQuery = query.split("&")[0];
+  return rotationQuery.split("=")[1]
+}();
 
-var rotation;
+var list = function() {
+  listQuery = query.split("&")[1];
+  return listQuery.split("=")[1]
+}();
+
+console.log(query);
+console.log(rotation);
+console.log(list);
+
 // rotation = getURlParameter('rotation');
 console.log(pragContext);
 // console.log(rotation);
