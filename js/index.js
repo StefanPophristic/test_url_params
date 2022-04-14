@@ -3,10 +3,8 @@ var contexts = ["good", "bad"];
 pragContext = contexts[Math.floor(Math.random() * contexts.length)];
 
 var query = window.location.search.substring(1);
-var qs = parse_query_string(query);
 
 console.log(query);
-console.log(qs);
 
 var rotation;
 // rotation = getURlParameter('rotation');
