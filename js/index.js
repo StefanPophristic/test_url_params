@@ -12,17 +12,17 @@ for(i = 0; i< urlParamArray.length; i++) {
   paramArray.push([splitParam[0], splitParam[1]])
 };
 
-
-
-var rotation = getURlParameter('rotation');
-console.log(rotation);
-function getUrlParameter(sParam) {
+var getUrlParameter = function (sParam) {
   for(i = 0; i < paramArray.length; i++) {
     if(paramArray[i][0] == sParam) {
       return paramArray[i][1];
     }
   }
 };
+
+var rotation = getURlParameter('rotation');
+console.log(rotation);
+
 
 // assumes URL parameters to be of the format
 // rotation=R1&list=1
