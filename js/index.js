@@ -4,22 +4,47 @@ pragContext = contexts[Math.floor(Math.random() * contexts.length)];
 
 var query = window.location.search.substring(1);
 
-var rotation = function() {
-  rotationQuery = query.split("&")[0];
-  return rotationQuery.split("=")[1]
-}();
+var urlParams = window.location.search.substring(1);
+var urlParamArray = urlParams.split("&");
+var paramArray = [];
+for(i = 0; i< urlParamArray.length; i++) {
+  splitParam = urlParamArray[i].split("=");
+  paramArray.push([splitParam[0], splitParam[1]])
+};
 
-var list = function() {
-  listQuery = query.split("&")[1];
-  return listQuery.split("=")[1]
-}();
+function getUrlParameter(sParam) {
+  for(i = 0; i < paramArray.length; i++) {
+    if(paramArray[i][0] == sParam) {
+      return paramArray[i][1];
+    }
+  }
+};
 
-console.log(query);
+var rotation = getURlParameter('rotation');
 console.log(rotation);
-console.log(list);
 
-// rotation = getURlParameter('rotation');
-console.log(pragContext);
+
+// assumes URL parameters to be of the format
+// rotation=R1&list=1
+// R1 or R2
+// 1 or 2
+
+// var rotation = function() {
+//   rotationQuery = query.split("&")[0];
+//   return rotationQuery.split("=")[1]
+// }();
+//
+// var list = function() {
+//   listQuery = query.split("&")[1];
+//   return listQuery.split("=")[1]
+// }();
+//
+// console.log(query);
+// console.log(rotation);
+// console.log(list);
+//
+// // rotation = getURlParameter('rotation');
+// console.log(pragContext);
 // console.log(rotation);
 
 // variable to hold each trials instruction
