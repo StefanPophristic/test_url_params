@@ -2,24 +2,25 @@ var pragContext;
 var contexts = ["good", "bad"];
 pragContext = contexts[Math.floor(Math.random() * contexts.length)];
 
-// 
-//
-// function GetURLParameter(sParam) {
-//     var sPageURL = window.location.search.substring(1);
-//     var sURLVariables = sPageURL.split('&');
-//     for (var i = 0; i < sURLVariables.length; i++)
-//     {
-//         var sParameterName = sURLVariables[i].split('=');
-//         if (sParameterName[0] == sParam)
-//         {
-//             return sParameterName[1];
-//         }
-//     }
-// }​;
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};
 
 
 var rotation;
-rotation = urlParams.get('rotation');
+rotation = getURlParameter('rotation');
 console.log(pragContext);
 console.log(rotation);
 
